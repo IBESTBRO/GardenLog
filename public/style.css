@@ -1,0 +1,176 @@
+/* design start*/
+header{
+    height: 800px;
+    background-color: aliceblue;
+}
+body{
+    justify-self: center;
+    margin: 0 auto;
+    max-width: 800px;
+    min-width: 300px;
+    background-color: rgb(211, 204, 204);
+    
+}
+
+
+h1 {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    background-color: rgb(5, 95, 5);
+    border: 3px solid rgb(17, 63, 17);
+    margin:0;
+    font-size: 2.5vh ;
+    color: rgb(160, 250, 164) ;
+    
+    
+}
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}  
+
+.position-start{
+    display: flex;
+    
+}
+nav{
+    margin: 2px;
+}
+
+.knopf{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 170px ;
+width: 170px;
+margin: 5px;
+margin-top: 20px;
+background-color: rgb(158, 163, 158);
+color: rgb(47, 56, 48);
+font-size:30px;
+padding: 0;
+}
+
+.knopf:hover{
+    background-color: rgb(52, 63, 30);
+    color: antiquewhite;
+}
+.knopf-2:hover{
+    background-color: rgb(52, 63, 30);
+    color: antiquewhite;
+}
+
+.knopf-2{
+    height: 100px;
+    margin:  20px 0;
+    width: 100%;
+    background-color: rgb(80, 82, 80);
+}
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+/*standard button */
+.standard-button{
+    
+    
+}
+.zurück{
+    margin: 20px;
+    display: flex;
+    align-items: start;
+    
+    margin-right: 100px;
+
+}
+
+.t-buch{
+    margin: 20px;
+    display: flex;
+    align-items: flex-end;
+    
+    
+}
+
+/*design NPK-Rechner*/
+
+.abfall{
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    
+}
+.abfälle{
+    display: grid;
+    grid-template-columns: repeat(5, 0fr);
+    gap: 0rem;
+    margin:  10px;
+    
+}
+
+.abfall img {
+    width: 100%;
+    
+    object-fit: cover;
+    border-radius: 8px;
+    
+}
+.position-npk{
+    
+}
+h2{
+    display: flex;
+    justify-self: center;
+    margin: 0;
+}
+
+
+/*Volumen-Rechner*/
+.volumen-rechner{
+
+    
+}
+
+.v-all{
+    
+}
+.x{
+    background-color: rgb(52, 58, 56);
+    
+    color: antiquewhite;
+}
+
+.y{
+    background-color: rgb(52, 58, 56);
+    
+    color: antiquewhite;
+}
+.z{
+    background-color: rgb(52, 58, 56);
+    
+    color: antiquewhite;
+}
+.eingabe-volumen{
+    
+    
+}
+.eingabe-volumen-2{
+    
+}
+
+.wert{
+    
+    background-color: rgb(88, 83, 83);
+}
+.v-über{
+    
+}
+
