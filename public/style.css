@@ -1,20 +1,54 @@
+
+
+/*login+registrierung*/
+.login-position{
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 40px 20px;
+    background-color: rgb(166, 168, 158);
+}
+.login-position-abstand{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    height: 7vh;
+    flex-direction: column ;
+    margin-bottom:20px ;
+    gap: 10px;
+}
+
+.regist-position{
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 40px 20px;
+    background-color: rgb(166, 168, 158);
+}
+
+.regist-position-abstand{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    height: 7vh;
+    flex-direction: column ;
+    margin-bottom:20px ;
+    gap: 10px;
+}
+
 /* design start*/
 header{
-    height: 800px;
-    background-color: aliceblue;
+    height: 100%;
+    background-color: rgb(243, 239, 239);
 }
-body{
-    justify-self: center;
-    margin: 0 auto;
-    max-width: 800px;
-    min-width: 300px;
-    background-color: rgb(211, 204, 204);
+html,body{
+    height: 100%;
+    margin: 0 ;
+    background-color: rgb(224, 224, 224);
     
 }
-
 
 h1 {
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,13 +56,12 @@ h1 {
     background-color: rgb(5, 95, 5);
     border: 3px solid rgb(17, 63, 17);
     margin:0;
-    font-size: 2.5vh ;
+    font-size: 3.5vh ;
     color: rgb(160, 250, 164) ;
-    
-    
 }
 .page {
     display: none;
+    justify-self: center;
 }
 
 .page.active {
@@ -36,30 +69,27 @@ h1 {
 }  
 
 .position-start{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    justify-self: center;
     
 }
 nav{
-    margin: 2px;
+    padding: 10px;
+    
 }
 
 .knopf{
-display: flex;
-justify-content: center;
-align-items: center;
-height: 170px ;
-width: 170px;
-margin: 5px;
-margin-top: 20px;
-background-color: rgb(158, 163, 158);
-color: rgb(47, 56, 48);
-font-size:30px;
-padding: 0;
+    margin: 5px;
+    height: 20vh;
+    width: 35vw;
+    background-color: rgb(152, 167, 138);
 }
 
 .knopf:hover{
-    background-color: rgb(52, 63, 30);
-    color: antiquewhite;
+    background-color: rgb(40, 56, 24);
+    color: rgb(255, 238, 215);
 }
 .knopf-2:hover{
     background-color: rgb(52, 63, 30);
@@ -67,10 +97,14 @@ padding: 0;
 }
 
 .knopf-2{
+    font-size: x-large;
+    color: aliceblue;
+    justify-self: center;
     height: 100px;
-    margin:  20px 0;
-    width: 100%;
-    background-color: rgb(80, 82, 80);
+    margin:  10px 10%;
+    width: 80%;
+
+    background-color: rgb(95, 97, 95);
 }
 body{
     padding: 0px;
@@ -80,55 +114,51 @@ body{
 /*standard button */
 .standard-button{
     
-    
-}
-.zurück{
-    margin: 20px;
     display: flex;
-    align-items: start;
-    
-    margin-right: 100px;
-
-}
-
-.t-buch{
+    justify-content: space-between;
+    align-items: center;
     margin: 20px;
-    display: flex;
-    align-items: flex-end;
-    
-    
 }
+.zurück,.t-buch{
+    background-color: rgb(53, 52, 52);
+    color: rgb(255, 247, 230);
+    margin: 0;
+    height: 40px;
+    width: 100px;
+}
+
+
 
 /*design NPK-Rechner*/
+
+.abfall img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
 .abfall{
     text-align: center;
     cursor: pointer;
     border: 2px solid transparent;
     border-radius: 8px;
-    
+    font-size:xx-small ;
 }
 .abfälle{
     display: grid;
-    grid-template-columns: repeat(5, 0fr);
-    gap: 0rem;
-    margin:  10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
     
 }
 
-.abfall img {
-    width: 100%;
-    
-    object-fit: cover;
-    border-radius: 8px;
-    
-}
+
 .position-npk{
     
 }
 h2{
     display: flex;
-    justify-self: center;
+    justify-content: center;
     margin: 0;
 }
 
@@ -174,3 +204,26 @@ h2{
     
 }
 
+@media (min-width: 768px) {
+    .abfälle {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .abfälle {
+        grid-template-columns: repeat(10, 1fr);
+        
+    }
+}
+
+@media (min-width: 768px) {
+    .position-start {
+        grid-template-columns: auto auto auto;
+    }
+}
+@media (min-width: 1024px) {
+    .abfall {
+        font-size: 1rem;
+    }
+}
