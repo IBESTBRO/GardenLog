@@ -1,5 +1,5 @@
 const npkDaten = {
-    graten: {
+    gräten: {
         name: 'Gräten',
         n: 3.0, p: 2.0, k: 0.1,
         ph: 7.0,
@@ -7,7 +7,7 @@ const npkDaten = {
         ca: 1.5, mg: 0.3, s: 0.2,
         sonstiges: ['Fe', 'Mn', 'F']
     },
-    karottengrun: {
+    karottengrün: {
         name: 'Karottengrün',
         n: 1.5, p: 0.3, k: 1.5,
         ph: 6.5,
@@ -31,15 +31,7 @@ const npkDaten = {
         ca: 35, mg: 12, si: 10,
         sonstiges: ['Fe', 'Mn']
     },
-    mandelschale: {
-        name: 'Mandelschale',
-        n: 0.3, p: 0.1, k: 0.2,
-        ph: 7.0,
-        zersetzung: '2-4 Monate',
-        ca: 0.5, mg: 0.2, fe: 0.03,
-        sonstiges: ['Mn']
-    },
-    huhnermist: {
+    hühnermist: {
         name: 'Hühnermist',
         n: 1.63, p: 1.54, k: 0.85,
         ph: 7.5,
@@ -87,8 +79,8 @@ const npkDaten = {
         ca: 0.4, mg: 0.2, fe: 0.03,
         sonstiges: ['Mn']
     },
-    brennnesseljauche: {
-        name: 'Brennnesseljauche',
+    brennesseljauche: {
+        name: 'Brennesseljauche',
         n: 2.0, p: 0.2, k: 1.5,
         ph: 7.8,
         zersetzung: 'Sofort (flüssig)',
@@ -173,14 +165,6 @@ const npkDaten = {
         ph: 5.5,
         zersetzung: '1-3 Jahre',
         ca: 0.3, mg: 0.1, fe: 0.02,
-        sonstiges: ['Mn']
-    },
-    teebeutel: {
-        name: 'Teebeutel',
-        n: 1.5, p: 0.2, k: 0.4,
-        ph: 6.0,
-        zersetzung: '2-4 Wochen',
-        ca: 0.3, mg: 0.2, fe: 0.03,
         sonstiges: ['Mn']
     },
     brotjauche: {

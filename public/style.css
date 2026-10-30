@@ -152,10 +152,40 @@ body{
     
 }
 
-
-.position-npk{
-    
+.npk-rechnen{
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    margin: 40px auto;
+    padding: 20px;
 }
+.npk-eintrag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    margin: 4px 0;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+.npk-entfernen {
+    background: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#npk-ergebnis {
+    margin-top: 10px;
+    padding: 10px;
+    background: #d4edda;
+    border-radius: 4px;
+    min-height: 20px;
+}   
+
 h2{
     display: flex;
     justify-content: center;
@@ -164,14 +194,9 @@ h2{
 
 
 /*Volumen-Rechner*/
-.volumen-rechner{
 
-    
-}
 
-.v-all{
-    
-}
+
 .x{
     background-color: rgb(52, 58, 56);
     
@@ -188,21 +213,13 @@ h2{
     
     color: antiquewhite;
 }
-.eingabe-volumen{
-    
-    
-}
-.eingabe-volumen-2{
-    
-}
+
 
 .wert{
     
     background-color: rgb(88, 83, 83);
 }
-.v-über{
-    
-}
+
 
 @media (min-width: 768px) {
     .abfälle {
