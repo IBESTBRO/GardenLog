@@ -6,7 +6,7 @@ const User = require('../models/User');
 //erstellt ein router für die erreichbarkeit/api/auth
 const router = express.Router();
 
-// für registrierung
+// für registrierung-email ,passwort ,user speichern
 router.post('/register', async (req, res) => {
     try {
         //
@@ -23,16 +23,20 @@ router.post('/register', async (req, res) => {
     }
 });
 
-//für login
+//für login daten vergleichen zur anmeldung
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
+
+        //user und passwort prüfen
         const user = await User.findOne({ email });
         if (!user) return res.status(400).json({ message: 'Falsche E-Mail oder Passwort' });
         const match = await bcrypt.compare(password, user.password);
         if (!match) return res.status(400).json({ message: 'Falsche E-Mail oder Passwort' });
+        
+        //jwt-token erzeugen alle 24 stunden gültig
         const token = jwt.sign({ id: user._id, name: user.name }, process.env.JWT_SECRET, { expiresIn: '24h' });
-        res.json({ token, name: user.name });
+        res.json({ token, name: user.name , role: user.role || 'user'});
     } catch (err) {
         console.error('LOGIN Error:', err);
         res.status(500).json({ message: 'Serverfehler' });
