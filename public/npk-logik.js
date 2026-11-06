@@ -109,7 +109,7 @@ ladeDaten().then(() => {
                     });
 
                     if (res.ok) {
-                        document.getElementById('npk-speichern').textContent = '✓ Gespeichert!';
+                        document.getElementById('npk-speichern').textContent = 'Gespeichert!';
                         document.getElementById('npk-speichern').disabled = true;
                     } else {
                         alert('Fehler beim Speichern');

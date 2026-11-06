@@ -196,28 +196,26 @@ h2{
 
 /*Volumen-Rechner*/
 
-
+.v-all{
+    background-color: rgb(163, 163, 146);
+    padding: 50px;
+}
 
 .x{
     background-color: rgb(52, 58, 56);
-    
+    height: 5vh;
     color: antiquewhite;
+    padding: 20px;
 }
 
-.y{
-    background-color: rgb(52, 58, 56);
-    
-    color: antiquewhite;
-}
-.z{
-    background-color: rgb(52, 58, 56);
-    
-    color: antiquewhite;
-}
 
 
 .wert{
-    
+    justify-content: center;
+    height: 20px;
+    padding: 20px;
+    padding-left: 60px;
+    margin: 20px;
     background-color: rgb(88, 83, 83);
 }
 
@@ -293,5 +291,118 @@ h2{
     border-radius: 4px;
     width: 28px;
     height: 28px;
+    cursor: pointer;
+}   
+
+/* rasen-rechner */
+
+.page-rasen {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.rasen-box {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #e8e8e0;
+    border-radius: 8px;
+}
+
+.rasen-titel {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.rasen-hinweis {
+    text-align: center;
+    color: #666;
+    font-size: 0.85em;
+    margin-bottom: 16px;
+}
+
+.rasen-bar {
+    position: relative;
+    height: 40px;
+    background: #ccc;
+    border-radius: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+    user-select: none;
+}
+
+.rasen-bar-sand {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    background: #e8c840;
+    border-radius: 20px 0 0 20px;
+}
+
+.rasen-bar-lehm {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #c4956a;
+}
+
+.rasen-bar-erde {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #5a3e2b;
+    border-radius: 0 20px 20px 0;
+}
+
+.rasen-handle {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    background: #fff;
+    border: 3px solid #333;
+    border-radius: 50%;
+    cursor: grab;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.rasen-werte {
+    display: flex;
+    justify-content: space-around;
+    margin: 12px 0;
+    font-size: 0.95em;
+}
+
+.rasen-bewertung {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 8px;
+    background: #d4edda;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.rasen-speichern {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.rasen-speichern input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #999;
+    width: 180px;
+}
+
+.rasen-speichern button {
+    padding: 8px 16px;
+    background: #3a5a3a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }   

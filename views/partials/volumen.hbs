@@ -1,0 +1,28 @@
+<div class="page" id="page-volumen">
+    <div class="standard-button">
+        <button class="zurück" data-page="start">Zurück</button>
+        <button class="t-buch" data-page="tagebuch">Tagebuch</button>
+    </div>
+    <h2 class="v-über">Volumen-Rechner</h2>
+    <div class="v-all">
+        <div class="volumen-rechner">
+            <div class="x">Länge: <input type="number" class="eingabe-volumen" min="0"></div>
+        </div>
+        <div class="volumen-rechner">
+            <div class="x">Breite: <input type="number" class="eingabe-volumen" min="0"></div>
+        </div>
+        <div class="volumen-rechner">
+            <div class="x">Höhe: <input type="number" class="eingabe-volumen-2" min="0"></div>
+        </div>
+    </div>
+    <div class="wert">
+        <select id="einheit">
+            <option value="mm">mm</option>
+            <option value="cm" selected>cm</option>
+            <option value="dm">dm</option>
+            <option value="m">m</option>
+        </select>
+        <button id="volumen-berechnen">Berechnen</button>
+    </div>
+    <div id="volumen-ergebnis"></div> 
+</div>   

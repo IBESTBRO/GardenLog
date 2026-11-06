@@ -211,7 +211,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
     app.use('/api/auth', require('./routes/auth'));
     
-    // seerver starten
+    // server starten
 app.listen(port,'0.0.0.0', () => {
     console.log(`Server läuft auf:http://localhost:${port}`)
 })   // auf handy verbinden mit ip von pc in gleichen wlan -ipconfig in terminel = ip adresse-

@@ -1,0 +1,35 @@
+<div class="page page-rasen" id="page-rasen">
+    <div class="standard-button">
+        <button class="zurück" data-page="start">Zurück</button>
+        <button class="t-buch" data-page="tagebuch">Tagebuch</button>
+    </div>
+    <h2>Rasenerde-Rechner</h2>
+
+    <div class="rasen-box">
+        <h3 class="rasen-titel">Mischungsverhältnis</h3>
+        <p class="rasen-hinweis">Ziehe die 2 Regler - links Sand, Mitte Lehm, rechts Erde</p>
+
+        <div id="mischung-bar" class="rasen-bar">
+            <div id="bar-sand" class="rasen-bar-sand"></div>
+            <div id="bar-lehm" class="rasen-bar-lehm"></div>
+            <div id="bar-erde" class="rasen-bar-erde"></div>
+            <div id="handle-1" class="rasen-handle"></div>
+            <div id="handle-2" class="rasen-handle"></div>
+        </div>
+
+        <div class="rasen-werte">
+            <span>🟡 Sand: <strong id="sand-wert">33%</strong></span>
+            <span>🟠 Lehm: <strong id="lehm-wert">33%</strong></span>
+            <span>🟤 Erde: <strong id="erde-wert">34%</strong></span>
+        </div>
+
+        <div id="mischung-bewertung" class="rasen-bewertung"></div>
+
+        <hr style="margin:20px 0;border:none;border-top:1px solid #999;">
+
+        <div class="rasen-speichern">
+            <input type="text" id="rasen-rezept-name" placeholder="Rezept-Name">
+            <button id="rasen-speichern">Speichern</button>
+        </div>
+    </div>
+</div>   
