@@ -1,9 +1,11 @@
-/*const express = require("express");
-const NpkMaterial = require('./models/NpkMaterial');
+const express = require('express');
+const NpkMaterial = require('../models/NpkMaterial');
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-    res.json(await NpkMaterial.find());
+//NPK-materialien laden
+router.get('/', async (req, res) => {
+    const materials = await NpkMaterial.find();
+    res.json(materials);
 });
 
-module.exports = router;
+module.exports = router;   

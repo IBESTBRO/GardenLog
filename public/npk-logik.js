@@ -83,7 +83,7 @@ ladeDaten().then(() => {
                 document.getElementById('npk-ergebnis').innerHTML =
                     `<strong>${anzahlTeile} Teile | ${totalGewicht} g</strong><br>${werteText}` +
                     `<br><input type="text" id="npk-rezept-name" placeholder="Rezept-Name" style="margin-top:10px;padding:6px 10px;width:200px;border-radius:4px;border:1px solid #999;">` +
-                    `<button id="npk-speichern" style="margin-top:10px;margin-left:8px;padding:8px 16px;background:#3a5a3a;color:#fff;border:none;border-radius:4px;cursor:pointer;">Speichern</button>`;
+                    `<button id="npk-speichern" style="margin-top:10px;margin-left:8px;padding:8px 16px;background:#3a5a3a;color:#fff;border:none;border-radius:4px;cursor:pointer;">Speichern💾</button>`;
 
                 //speicher-button: rezepte werden in tagebuch - DB eingetragen
                 document.getElementById('npk-speichern').addEventListener('click', async () => {

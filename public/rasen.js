@@ -174,7 +174,7 @@ document.getElementById('rasen-speichern').addEventListener('click', async () =>
     });
 
     if (res.ok) {
-        document.getElementById('rasen-speichern').textContent = '✓ Gespeichert!';
+        document.getElementById('rasen-speichern').textContent = ' Gespeichert!';
         document.getElementById('rasen-speichern').disabled = true;
         document.getElementById('rasen-speichern').style.background = '#27ae60';
     } else {

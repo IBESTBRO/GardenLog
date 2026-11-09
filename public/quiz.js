@@ -5,19 +5,19 @@ const fragen = [
         f: 'Knochenmehl ist besonders reich an welchem Nährstoff?',
         a: ['Stickstoff (N)', 'Phosphor (P)', 'Kalium (K)'],
         richtig: 1,
-        erlaeuterung: 'Knochenmehl enthält ca. 3% P₂O₅ – ideal für Wurzelwachstum und Blüte.'
+        erlaeuterung: 'Knochenmehl enthält ca. 3% P₂O₅ - ideal für Wurzelwachstum und Blüte.'
     },
     {
         f: 'Welches Material liefert viel Kalium (K)?',
         a: ['Kaffeesatz', 'Holzasche', 'Hornspäne'],
         richtig: 1,
-        erlaeuterung: 'Holzasche enthält ca. 10% K₂O – stärkt Stängel und Frostresistenz.'
+        erlaeuterung: 'Holzasche enthält ca. 10% K₂O - stärkt Stängel und Frostresistenz.'
     },
     {
         f: 'Hornspäne sind vor allem eine Quelle für…',
         a: ['Stickstoff (N)', 'Phosphor (P)', 'Kalium (K)'],
         richtig: 0,
-        erlaeuterung: 'Hornspäne enthalten ca. 12% N – langsam freisetzender Stickstoff für Blattwachstum.'
+        erlaeuterung: 'Hornspäne enthalten ca. 12% N - langsam freisetzender Stickstoff für Blattwachstum.'
     },
     {
         f: 'Kokosfasern sind als Substrat gut, weil sie…',
@@ -29,37 +29,37 @@ const fragen = [
         f: 'Kaffeesatz enthält vor allem welchen Nährstoff?',
         a: ['Stickstoff (N)', 'Phosphor (P)', 'Kalium (K)'],
         richtig: 0,
-        erlaeuterung: 'Kaffeesatz enthält ca. 1–2% N – leichter Stickstoff-Boost, aber kein Hauptdünger.'
+        erlaeuterung: 'Kaffeesatz enthält ca. 1-2% N - leichter Stickstoff-Boost, aber kein Hauptdünger.'
     },
     {
         f: 'Welches Material ist am nährstoffreichsten an Stickstoff (N)?',
         a: ['Blattkompost', 'Frischkompost (Gras)', 'Torf'],
         richtig: 1,
-        erlaeuterung: 'Frischer Grasschnitt/Grünkompost enthält ca. 2–3% N – der stickstoffreichste Gartenabfall.'
+        erlaeuterung: 'Frischer Grasschnitt/Grünkompost enthält ca. 2-3% N - der stickstoffreichste Gartenabfall.'
     },
     {
         f: 'Eierreste (Schalen) liefern vor allem…',
         a: ['Kalium (K)', 'Stickstoff (N)', 'Calcium (Ca)'],
         richtig: 2,
-        erlaeuterung: 'Eierschalen bestehen zu ~95% aus Calciumcarbonat – gut gegen Versauerung, aber kein NPK-Dünger.'
+        erlaeuterung: 'Eierschalen bestehen zu ~95% aus Calciumcarbonat - gut gegen Versauerung, aber kein NPK-Dünger.'
     },
     {
         f: 'Welcher Nährstoff ist für grünes Blatt- und Sprosswachstum verantwortlich?',
         a: ['Phosphor (P)', 'Kalium (K)', 'Stickstoff (N)'],
         richtig: 2,
-        erlaeuterung: 'Stickstoff (N) treibt das vegetative Wachstum – ohne N werden Blätter gelb (Chlorose).'
+        erlaeuterung: 'Stickstoff (N) treibt das vegetative Wachstum - ohne N werden Blätter gelb (Chlorose).'
     },
         {
         f: 'Welches Material ist am besten gegen Bodenversauerung geeignet?',
         a: ['Knochenmehl', 'Holzasche', 'Hornspäne'],
         richtig: 1,
-        erlaeuterung: 'Holzasche ist alkalisch (pH ~11) und neutralisiert sauren Boden – enthält zusätzlich viel K.'
+        erlaeuterung: 'Holzasche ist alkalisch (pH ~11) und neutralisiert sauren Boden - enthält zusätzlich viel K.'
     },
     {
         f: 'Welcher Nährstoff wird bei Blüte und Fruchtbildung am meisten benötigt?',
         a: ['Stickstoff (N)', 'Phosphor (P)', 'Kalium (K)'],
         richtig: 1,
-        erlaeuterung: 'Phosphor (P) ist entscheidend für Blüte, Fruchtansatz und Wurzelbildung – Knochenmehl ist die beste organische P-Quelle.'
+        erlaeuterung: 'Phosphor (P) ist entscheidend für Blüte, Fruchtansatz und Wurzelbildung - Knochenmehl ist die beste organische P-Quelle.'
     }   
 ];
 

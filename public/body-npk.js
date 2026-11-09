@@ -6,10 +6,10 @@ async function ladeUndInjiziere() {
     const npkHtml = `
     <div class="page" id="page-npk">
         <div class="standard-button">
-            <button class="zurück" data-page="start">Zurück</button>
-            <button class="t-buch" data-page="tagebuch">Tagebuch</button>
+            <button class="zurück" data-page="start">Zurück🛖</button>
+            <button class="t-buch" data-page="tagebuch">Tagebuch 📙</button>
         </div>
-        <h2>NPK-Rechner</h2>
+        <h2>NPK-Rechner🚯</h2>
         <div class="position-npk">
             <div class="abfälle">
                 ${materials.map(d => `
