@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gardenlog</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/assets/pwa-assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-180x180.png">   
 </head>
 <body>
+    
+
     {{{body}}}
     <script src="/header.js"></script>
     <script src="/login.js"></script>
@@ -17,6 +22,11 @@
     <script src="/admin.js"></script> 
     <script src="/volumen.js"></script>
     <script src="/rasen.js"></script> 
-    <script src="/quiz.js"></script>     
+    <script src="/quiz.js"></script>  
+    <script>
+        if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/sw.js");
+        }
+    </script>   
 </body>
 </html>   

@@ -1,13 +1,9 @@
-
 // lädt alle NPK-materialien von der Admin-API und rendert sie in die liste
 async function ladeAdminNpk() {
-
-    // GET-anfrage an die Admin-Route, mit Bearer-Token aus localStorage für autorisierung
     const res = await fetch('/api/admin/npk', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     });
 
-    // wenn die anfrage fehlschlägt (z. B. 401, 403, 500) = abbrechen, nichts rendern
     if (!res.ok) return;
     const materials = await res.json();
     renderAdminListe(materials);
@@ -31,25 +27,23 @@ function renderAdminListe(materials) {
         </div>
     `).join('');
     
-    // für jeden löschen-button: klick-handler binden
+    // löschen-button
     liste.querySelectorAll('.adm-loeschen').forEach(btn => {
         btn.addEventListener('click', async () => {
             if (!confirm('Material löschen?')) return;
 
-            // DELETE-anfrage an die API mit der objectId des materials
             await fetch(`/api/admin/npk/${btn.dataset.id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
             ladeAdminNpk();
+            if (typeof ladeUndInjiziere === 'function') ladeUndInjiziere();
         });
     });
 
-// für jeden bearbeiten-button: klick-handler binden
-liste.querySelectorAll('.adm-bearbeiten').forEach(btn => {
+    // bearbeiten-button
+    liste.querySelectorAll('.adm-bearbeiten').forEach(btn => {
         btn.addEventListener('click', () => {
-
-            // alle formularfelder mit den data-Attributen des buttons befüllen
             document.getElementById('adm-key').value = btn.dataset.key;
             document.getElementById('adm-name').value = btn.dataset.name;
             document.getElementById('adm-n').value = btn.dataset.n;
@@ -59,64 +53,65 @@ liste.querySelectorAll('.adm-bearbeiten').forEach(btn => {
             document.getElementById('adm-mg').value = btn.dataset.mg;
             document.getElementById('adm-s').value = btn.dataset.s;
 
-            // button-text auf „Aktualisieren" ändern und die _id merken
             document.getElementById('adm-speichern').textContent = 'Aktualisieren';
             document.getElementById('adm-speichern').dataset.editId = btn.dataset.id;
         });
     });
 }
 
-// klick-handler auf den „Speichern"/„Aktualisieren"-button
+// klick-handler auf den „Speichern"/„Aktualisieren"-button (inkl. Bild-Upload)
 document.getElementById('adm-speichern')?.addEventListener('click', async () => {
-    
-    // alle formularwerte sammeln; parseFloat + || 0 stellt sicher, dass leere felder 0 werden
-    const data = {
-        key: document.getElementById('adm-key').value.trim(),
-        name: document.getElementById('adm-name').value.trim(),
-        bild: document.getElementById('adm-bild').value.trim(),
-        n: parseFloat(document.getElementById('adm-n').value) || 0,
-        p: parseFloat(document.getElementById('adm-p').value) || 0,
-        k: parseFloat(document.getElementById('adm-k').value) || 0,
-        ca: parseFloat(document.getElementById('adm-ca').value) || 0,
-        mg: parseFloat(document.getElementById('adm-mg').value) || 0,
-        s: parseFloat(document.getElementById('adm-s').value) || 0
-    };
+    const key = document.getElementById('adm-key').value.trim();
+    const name = document.getElementById('adm-name').value.trim();
 
-    // Client-seitige Validierung: key und name dürfen nicht leer sein
-    if (!data.key || !data.name) { alert('Key und Name sind Pflicht.'); return; }
+    if (!key || !name) { 
+        alert('Key und Name sind Pflicht.'); 
+        return; 
+    }
 
-    // falls eine editId gesetzt ist - PUT (Bearbeiten), sonst - POST (neu anlegen)
+    // ganze werte mit bild (material)
+    const formData = new FormData();
+    formData.append('key', key);
+    formData.append('name', name);
+    formData.append('n', parseFloat(document.getElementById('adm-n').value) || 0);
+    formData.append('p', parseFloat(document.getElementById('adm-p').value) || 0);
+    formData.append('k', parseFloat(document.getElementById('adm-k').value) || 0);
+    formData.append('ca', parseFloat(document.getElementById('adm-ca').value) || 0);
+    formData.append('mg', parseFloat(document.getElementById('adm-mg').value) || 0);
+    formData.append('s', parseFloat(document.getElementById('adm-s').value) || 0);
+
+    // bild anhängen
+    const fileInput = document.getElementById('adm-bild-file');
+    if (fileInput && fileInput.files.length > 0) {
+        formData.append('bildDatei', fileInput.files[0]);
+    }
+
     const editId = document.getElementById('adm-speichern').dataset.editId;
     const method = editId ? 'PUT' : 'POST';
     const url = editId ? `/api/admin/npk/${editId}` : '/api/admin/npk';
 
-    // anfrage an die API senden
     const res = await fetch(url, {
         method,
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
-        body: JSON.stringify(data)
+        body: formData
     });
 
     if (res.ok) {
-
-    // erfolg: Edit-Modus zurücksetzen, formular leeren, liste neu laden
-    delete document.getElementById('adm-speichern').dataset.editId;
-    document.getElementById('adm-speichern').textContent = 'Speichern';
-    alert('Gespeichert!');
-    document.querySelectorAll('[id^="adm-"]').forEach(i => i.value = '');
-    ladeAdminNpk();
-} else {
-
-    // fehler: fehlermeldung aus der API anzeigen
-    const d = await res.json();
-    alert(d.message || 'Fehler');
-}   
+        delete document.getElementById('adm-speichern').dataset.editId;
+        document.getElementById('adm-speichern').textContent = 'Speichern💾';
+        alert('Gespeichert!');
+        document.querySelectorAll('[id^="adm-"]').forEach(i => i.value = '');
+        ladeAdminNpk();
+        if (typeof ladeUndInjiziere === 'function') ladeUndInjiziere();
+    } else {
+        const d = await res.json();
+        alert(d.message || 'Fehler');
+    }   
 });
 
-// nur wenn der eingeloggte User die Rolle „admin" hat - Admin-Bereich initialisieren
+// Admin-Bereich initialisieren
 if (localStorage.getItem('role') === 'admin') {
     ladeAdminNpk();
-}   
+}

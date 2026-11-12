@@ -26,6 +26,7 @@
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.11.3",
+    "multer": "^2.5.0",
     "npm": "^12.2.1"
   }
 }

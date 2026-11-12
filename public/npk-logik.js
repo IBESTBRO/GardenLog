@@ -2,12 +2,28 @@ let heft = {};
 const EINHEIT = 100;
 let npkDaten = {};
 
-// daten von MongoDB laden - material npkDaten
 async function ladeDaten() {
-    const res = await fetch('/api/npk');
-    const arr = await res.json();
-    arr.forEach(d => { npkDaten[d.key] = d; });
+    const token = localStorage.getItem('token');
+    
+    // Wenn kein Token da ist (nicht eingeloggt), Anfrage gar nicht erst starten
+    if (!token) return;
+
+    try {
+        const res = await fetch('/api/npk', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        
+        if (!res.ok) return;
+
+        const arr = await res.json();
+        arr.forEach(d => { npkDaten[d.key] = d; });
+    } catch (err) {
+        console.error('Fehler beim Laden der NPK-Daten:', err);
+    }
 }
+
 
 // materialien - liste anzeigen
 function renderListe() {

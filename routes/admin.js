@@ -1,8 +1,20 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const multer = require('multer')
 const User = require('../models/User');
 const NpkMaterial = require('../models/NpkMaterial');
 const router = express.Router();
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/assets/images/');
+    },
+    filename: (req, file, cb) => {
+        const uniqueName = Date.now() + '-' + file.originalname.replace(/\s+/g, '-');
+        cb(null, uniqueName);
+    }
+});
+const upload = multer({ storage });
 
 // Admin-Middleware nur admin durchlassen
 function onlyAdmin(req, res, next) {
@@ -19,6 +31,13 @@ function onlyAdmin(req, res, next) {
     }
 }
 
+router.post('/upload-bild', onlyAdmin, upload.single('bildDatei'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: 'Kein Bild ausgewählt.' });
+    }
+    res.json({ filename: req.file.filename });
+});
+
 // NPK-Materialien laden
 router.get('/npk', onlyAdmin, async (req, res) => {
     const materials = await NpkMaterial.find();
@@ -26,9 +45,10 @@ router.get('/npk', onlyAdmin, async (req, res) => {
 });
 
 // NPK-Material hinzufügen
-router.post('/npk', onlyAdmin, async (req, res) => {
+router.post('/npk', onlyAdmin, upload.single('bildDatei'),async (req, res) => {
     try {
-        const { key, name, bild, n, p, k, ca, mg, s, fe, si, na, ph, zersetzung, sonstiges } = req.body;
+        const { key, name, n, p, k, ca, mg, s, fe, si, na, ph, zersetzung, sonstiges } = req.body;
+        const bild = req.file ? req.file.filename : (req.body.bild || '');
         const material = new NpkMaterial({ key, name, bild, n, p, k, ca, mg, s, fe, si, na, ph, zersetzung, sonstiges });
         await material.save();
         res.status(201).json(material);
@@ -38,9 +58,15 @@ router.post('/npk', onlyAdmin, async (req, res) => {
 });
 
 // NPK-Material bearbeiten
-router.put('/npk/:id', onlyAdmin, async (req, res) => {
+router.put('/npk/:id', onlyAdmin,upload.single('bildDatei'), async (req, res) => {
     try {
-        const updated = await NpkMaterial.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updateData = {...req.body};
+
+        if(req.file) {
+            updateData.bild = req.file.filename;
+        }
+
+        const updated = await NpkMaterial.findByIdAndUpdate(req.params.id, updateData, { new: true });
         res.json(updated);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -56,6 +82,8 @@ router.delete('/npk/:id', onlyAdmin, async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+
+
 
 //verbindung zu mongodb
 module.exports = router;
